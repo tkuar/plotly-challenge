@@ -4,7 +4,7 @@ function init(){
     var dropdown = d3.select('#selDataset');
 
     // Request data from samples.json and return promise
-    d3.json("data/samples.json").then(function(data){
+    d3.json("data/samples.json").then(data => {
         // Print data
         console.log(data);
 
@@ -30,7 +30,7 @@ function optionChanged(id){
 // Create the Plots
 function plots(id){
     // Request data from samples.json and return promise
-    d3.json("data/samples.json").then(function(data){
+    d3.json("data/samples.json").then(data => {
         // Print data
         console.log(data);
 
@@ -40,9 +40,25 @@ function plots(id){
         console.log(samples);
 
         // Get sample_values
+        var sampleValues = samples[0].sample_values;
         // Get otu_ids
+        var otuIDs = samples[0].otu_ids;
         // Get otu_labels
+        var otuLabels = samples[0].otu_labels;
 
+        // // Print sampleValues, otuIDs, otuLabels
+        // console.log(sampleValues);
+        // console.log(otuIDs);
+        // console.log(otuLabels);
+
+        var topSampleValues= sampleValues.slice(0,10);
+        var topOtuIDs = otuIDs.slice(0,10);
+        var topOtuLabels = otuLabels.slice(0,10);
+
+        // Print top 10 sampleValues, otuIDs, otuLabels
+        console.log(topSampleValues);
+        console.log(topOtuIDs);
+        console.log(topOtuLabels);
     })
 }
 
