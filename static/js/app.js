@@ -118,10 +118,16 @@ function demographics(id){
         // Get metadata and filter by selected subject ID
         var metadata = data.metadata.filter(m => m.id === parseInt(id));
 
-        // Print metadata
-        console.log(metadata[0]);
+        // // Print metadata
+        // console.log(metadata[0]);
 
+        // Clear data in Demographics Info panel
+        demoInfo.html('');
 
+        // Append metadata keys and values to Demographics Info panel
+        Object.entries(metadata[0]).forEach(([key,value]) => {
+            demoInfo.append('h6').text(`${key}: ${value}`);
+        });
     });
 }
 
