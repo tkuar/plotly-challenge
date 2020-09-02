@@ -7,15 +7,17 @@ function init(){
     d3.json('data/samples.json').then(data => {
         // // Print data
         // console.log(data);
-
+        var names = data.names;
+        console.log(names);
+        
         // Append sample name to dropdown
-        data.names.forEach(function(name){
+        names.forEach(function(name){
             dropdown.append('option').text(name).property('value');
         });
 
         // Generate and display plots and demographics info corresponding to first ID
-        plots(data.names[0]);
-        demographics(data.names[0]);
+        plots(names[0]);
+        demographics(names[0]);
     });
 }
 // Update plots/charts via change from HTML onchange Event Attribute i.e. event listener 
@@ -55,10 +57,10 @@ function plots(id){
         var topOtuIDs = otuIDs.slice(0,10);
         var topOtuLabels = otuLabels.slice(0,10);
 
-        // // Print top 10 sampleValues, otuIDs, otuLabels
-        // console.log(topSampleValues);
-        // console.log(topOtuIDs);
-        // console.log(topOtuLabels);
+        // Print top 10 sampleValues, otuIDs, otuLabels
+        console.log(topSampleValues);
+        console.log(topOtuIDs);
+        console.log(topOtuLabels);
 
         // Create traces for bar chart and bubble chart
         var trace1 = {
