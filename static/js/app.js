@@ -4,9 +4,9 @@ function init(){
     var dropdown = d3.select('#selDataset');
 
     // Request data from samples.json and return promise
-    d3.json("data/samples.json").then(data => {
-        // Print data
-        console.log(data);
+    d3.json('data/samples.json').then(data => {
+        // // Print data
+        // console.log(data);
 
         // Append sample name to dropdown
         data.names.forEach(function(name){
@@ -30,12 +30,12 @@ function optionChanged(id){
 // Create the Plots
 function plots(id){
     // Request data from samples.json and return promise
-    d3.json("data/samples.json").then(data => {
+    d3.json('data/samples.json').then(data => {
         // Print data
         console.log(data);
 
-        // Get sample data and filter for selected subject ID
-        var samples = data.samples.filter(sample => sample.id === id);
+        // Get sample data and filter by selected subject ID
+        var samples = data.samples.filter(s => s.id === id);
         // Print sample data
         console.log(samples);
 
@@ -97,7 +97,7 @@ function plots(id){
         };
 
         var bubbleLayout = {
-            xaxis:{title: "OTU ID"},
+            xaxis:{title: 'OTU ID'},
             height: 600,
             width: 1200
         };
@@ -110,7 +110,19 @@ function plots(id){
 
 // Add  information to Demographic Info panel
 function demographics(id){
+    // Select Demographics Info panel
+    var demoInfo = d3.select('#sample-metadata');
 
+    // Request data from samples.json and return promise
+    d3.json('data/samples.json').then(data => {
+        // Get metadata and filter by selected subject ID
+        var metadata = data.metadata.filter(m => m.id === parseInt(id));
+
+        // Print metadata
+        console.log(metadata[0]);
+
+
+    });
 }
 
 init();
