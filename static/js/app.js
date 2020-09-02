@@ -20,6 +20,7 @@ function init(){
         demographics(names[0]);
     });
 }
+
 // Update plots/charts via change from HTML onchange Event Attribute i.e. event listener 
 function optionChanged(id){
     // Update plot based on value
@@ -27,7 +28,6 @@ function optionChanged(id){
     // Update demographics based on value
     demographics(id);
 }
-
 
 // Create the Plots
 function plots(id){
@@ -94,13 +94,19 @@ function plots(id){
             font:{
               family: 'Raleway, sans-serif'
             },
+            margin: {
+                l: 100,
+                r: 100,
+                t: 100,
+                b: 30
+            },
             bargap :0.05
 
         };
 
         var bubbleLayout = {
             xaxis:{title: 'OTU ID'},
-            height: 600,
+            height: 650,
             width: 1200
         };
 
