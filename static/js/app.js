@@ -65,7 +65,7 @@ function plots(id){
         // Create traces for bar chart and bubble chart
         var trace1 = {
             x: topSampleValues.reverse(),
-            y: topOtuIDs.map(id => "OTU " + id),
+            y: topOtuIDs.map(id => `OTU  ${id}`),
             type: 'bar',
             orientation: 'h',
             text: topOtuLabels,
