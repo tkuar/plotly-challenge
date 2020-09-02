@@ -55,11 +55,57 @@ function plots(id){
         var topOtuIDs = otuIDs.slice(0,10);
         var topOtuLabels = otuLabels.slice(0,10);
 
-        // Print top 10 sampleValues, otuIDs, otuLabels
-        console.log(topSampleValues);
-        console.log(topOtuIDs);
-        console.log(topOtuLabels);
-    })
+        // // Print top 10 sampleValues, otuIDs, otuLabels
+        // console.log(topSampleValues);
+        // console.log(topOtuIDs);
+        // console.log(topOtuLabels);
+
+        // Create traces for bar chart and bubble chart
+        var trace1 = {
+            x: topSampleValues.reverse(),
+            y: topOtuIDs.map(id => "OTU " + id),
+            type: 'bar',
+            orientation: 'h',
+            text: topOtuLabels,
+            marker: {
+                color: topOtuIDs
+            }
+        };
+
+        var trace2 = {
+            x: otuIDs,
+            y: sampleValues,
+            text: otuLabels,
+            mode: 'markers',
+            marker: { 
+                color: otuIDs,
+                size: sampleValues
+            }
+        };
+
+        // Bar chart and bubble chart data
+        var barData = [trace1];
+        var bubbleData = [trace2];
+
+        // Set layout for bar chart and bubble chart
+        var barLayout = {
+            font:{
+              family: 'Raleway, sans-serif'
+            },
+            bargap :0.05
+
+        };
+
+        var bubbleLayout = {
+            xaxis:{title: "OTU ID"},
+            height: 600,
+            width: 1200
+        };
+
+        // Render the plots to respective div tag ids
+        Plotly.newPlot('bar', barData, barLayout);
+        Plotly.newPlot('bubble', bubbleData, bubbleLayout);
+    });
 }
 
 // Add  information to Demographic Info panel
