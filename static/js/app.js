@@ -4,7 +4,7 @@ function init() {
     var dropdown = d3.select('#selDataset');
 
     // Request data from samples.json and return promise
-    d3.json('data/samples.json').then(data => {
+    d3.json('../../samples.json').then(data => {
         // // Print data
         // console.log(data);
         var names = data.names;
@@ -32,7 +32,7 @@ function optionChanged(id) {
 // Create the Plots
 function plots(id) {
     // Request data from samples.json and return promise
-    d3.json('data/samples.json').then(data => {
+    d3.json('../../samples.json').then(data => {
         // Print data
         console.log(data);
 
@@ -164,7 +164,7 @@ function demographics(id) {
     var demoInfo = d3.select('#sample-metadata');
 
     // Request data from samples.json and return promise
-    d3.json('data/samples.json').then(data => {
+    d3.json('../../samples.json').then(data => {
         // Get metadata and filter by selected subject ID
         var metadata = data.metadata.filter(m => m.id === parseInt(id));
 
@@ -176,7 +176,7 @@ function demographics(id) {
 
         // Append metadata keys and values to Demographics Info panel
         Object.entries(metadata[0]).forEach(([key, value]) => {
-            demoInfo.append('h6').text(`${key}: ${value}`);
+            demoInfo.append('h5').text(`${key}: ${value}`);
         });
     });
 }
