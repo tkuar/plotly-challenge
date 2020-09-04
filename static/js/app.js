@@ -138,16 +138,33 @@ function plots(id) {
 
         var bubbleLayout = {
             xaxis: { title: 'OTU ID' },
+            font: {
+                family: 'Raleway, sans-serif'
+            },
             height: 650,
-            width: 1200
+            width: 1200,
+            margin: { 
+                l:50,
+                r:10 , 
+                t: 10, 
+                b: 60 
+                } 
         };
 
         // Bounus: set layout for gauge chart
         gaugeLayout = {
+            font: {
+                family: 'Raleway, sans-serif'
+            },
             width: 650, 
             height: 700, 
-            margin: { t: 10, b: 10, l:25, r:250 } 
-        }
+            margin: { 
+                l:70,
+                r:250 , 
+                t: 10, 
+                b: 10 
+                } 
+        };
 
         // Render the plots to respective div tag ids
         Plotly.newPlot('bar', barData, barLayout);
