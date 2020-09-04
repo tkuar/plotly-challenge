@@ -3,8 +3,10 @@
 ## Link to Deployed Dashboard
 * https://tkuar.github.io/plotly-challenge/
 ### Example Dashboard
-![fig1](Screenshot (194).png)
-![fig2](Screenshot (195).png)
+**Top**
+![fig1](dash1.png)
+**Bottom**
+![fig2](dash2.png)
 ### Resources
 * https://www.w3schools.com/tags/ev_onchange.asp
 * https://plotly.com/javascript/
