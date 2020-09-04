@@ -93,7 +93,7 @@ function plots(id) {
         var trace3 = {
             domain: { x: [0, 1], y: [0, 1] },
             value: wFreq,
-            title: { text: 'Belly Buttom Washing Frequency' },
+            title: { text: 'Belly Button Washing Frequency (Scrubs per Week)' },
             type: 'indicator',
             mode: 'gauge+number',
             gauge: {
